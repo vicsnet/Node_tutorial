@@ -20,8 +20,25 @@ app.use((req, res, next) =>{
     console.log(`${req.method} ${req.url} ${delta}ms`);
    
     
+});
+app.use(express.json()
+);
+
+app.post('/friends', (req, res)=>{
+    if(!req.body.name){
+        res.status(400).json({
+            error:'value must be a name'
+        });
+    }else{
+
+        const newFriend ={
+            name: req.body.name,
+            id:friends.length
+        };
+        friends.push(newFriend);
+        res.json(newFriend)
+    }
 })
-;
 app.get('/',(req, res)=>{
     res.send({
         id:1,
@@ -54,6 +71,7 @@ app.post('/messages', (req, res) =>{
     console.log('Updating messages ... ');
     
 })
+
 
 app.listen(PORT, ()=>{
     console.log('Listening on', PORT, '... hello')
