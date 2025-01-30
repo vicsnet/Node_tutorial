@@ -6,7 +6,8 @@ const { postFriend, getFriends, getFriend } = require('../controllers/friends.co
 const friendsRouter = express.Router();
 
 friendsRouter.use((req,rex, next)=>{
-    console.log('IP address',req.ip)
+    console.log('IP address',req.ip);
+    next();
 })
 
 friendsRouter.post('/', postFriend);

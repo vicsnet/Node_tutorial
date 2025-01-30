@@ -15,7 +15,7 @@ app.use((req, res, next) =>{
     next();
     // actions go here
     const delta = Date.now() - start;
-    console.log(`${req.method} ${req.url} ${delta}ms`);
+    console.log(`${req.method} ${req.baseUrl} ${req.url} ${delta}ms`);
    
     
 });
